@@ -1,0 +1,4 @@
+image_view:
+  pattern: /viewimage/{quality}/{galleryID}/{imageName}
+  defaults: { _controller: nc_labs_gallery.controller.image:viewAction, quality: lowres, galleryID: 0, imageName: image }
+  requirements: { _method: GET, quality: lowres|highres|thumb|preview, galleryID: \d+, imageName: "[\w\_]+.JPG" }

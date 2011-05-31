@@ -1,0 +1,36 @@
+NCLabs\Bundle\GalleryBundle\Entity\Image:
+  type: entity
+  table: image
+  fields:
+    imageId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: image_id
+      generator:
+        strategy: IDENTITY
+    imageName:
+      type: string
+      length: 8
+      fixed: false
+      nullable: false
+      column: image_name
+    imageCaption:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+      column: image_caption
+  manyToOne:
+    gallery:
+      targetEntity: Gallery
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        gallery_id:
+          referencedColumnName: gallery_id
+      orphanRemoval: false
+  repositoryClass: NCLabs\Bundle\GalleryBundle\Entity\ImageRepository
+  lifecycleCallbacks: {  }

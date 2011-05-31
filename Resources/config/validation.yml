@@ -1,0 +1,6 @@
+
+NCLabs\Bundle\GalleryBundle\Gallery\Manager:
+  properties:
+    galleryId:
+      - Type: { type: integer, message: A gallery ID must be an integer. }
+      - NotBlank: ~

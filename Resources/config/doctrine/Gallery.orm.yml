@@ -1,0 +1,37 @@
+NCLabs\Bundle\GalleryBundle\Entity\Gallery:
+  type: entity
+  table: gallery
+  fields:
+    galleryId:
+      id: true
+      type: integer
+      unsigned: true
+      nullable: false
+      column: gallery_id
+      generator:
+        strategy: IDENTITY
+    protected:
+      type: boolean
+      nullable: false
+      column: gallery_protected
+    enabled:
+      type: boolean
+      nullable: false
+      column: gallery_enabled
+    releaseTime:
+      type: datetime
+      unsigned: true
+      nullable: true
+      column: gallery_release_time
+    blog:
+      type: text
+      nullable: false
+      column: gallery_blog
+    preview:
+      type: string
+      length: 26
+      fixed: false
+      nullable: false
+      column: gallery_preview
+  repositoryClass: NCLabs\Bundle\GalleryBundle\Entity\GalleryRepository
+  lifecycleCallbacks: {  }

@@ -1,0 +1,16 @@
+{% extends 'NCLabsGalleryBundle:Gallery:default.html.twig' %}
+
+{% block shadowbox %}
+                    <script type="text/javascript" charset="utf-8">
+                    // <![CDATA[
+                    Shadowbox.init({
+                        handleOversize: "resize",
+                        continuous: true,
+                        overlayOpacity: 0.75,
+                        slideshowDelay: 8
+                    });
+                    // ]]>
+                    </script>
+{% endblock %}
+                   
+{% block shadowbox_rel %}rel="shadowbox[gallery]"{% endblock %}

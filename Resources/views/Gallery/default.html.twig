@@ -1,0 +1,19 @@
+                <div id="gallery" class="gallery">
+                    {% block shadowbox %}{% endblock %}
+                    <div class="gallery-images">
+                        <table>
+                        {% set count = 0 %}
+                        {% for image in gallery %}
+                            {% if count == 0 %}
+                                <tr>
+                            {% endif %}
+                                    <td><a id="{{ image.imageName }}" href="{{ path(route|default('image_view'), { 'quality': quality|default('lowres'), 'galleryID': image.gallery.galleryId, 'imageName': image.imageName ~ '.JPG' }) }}" {% block shadowbox_rel %}{% endblock %} title="{{ image.imageCaption }}"><img class="image" src="{{ path('image_view', { 'quality': 'thumb', 'galleryID': image.gallery.galleryID, 'imageName': image.imageName ~ '.JPG' }) }}" alt="th_{{ image.imageName }}" /></a></td>
+                            {% set count = count + 1 %}
+                            {% if ((count % imgPerRow) == 0) or (loop.revindex0 == 0) %}
+                                </tr>
+                                {% set count = 0 %}
+                            {% endif %}
+                        {% endfor %}
+                        </table>
+                    </div>
+                </div>

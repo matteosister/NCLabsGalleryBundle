@@ -1,0 +1,11 @@
+                    <div class="gallery-nav">
+                        <ul>
+                            <li><a href="{{ path('members_galleries') }}">Back to galleries</a></li>
+                            {% if page > 1 %}
+                            <li><a href="{{ path('members_view_gallery', { 'galleryID': galleryID, 'page': page - 1, 'quality': quality } ) }}">Previous page</a></li>
+                            {% endif %}
+                            {% if (page + 1) <= count %}
+                            <li><a href="{{ path('members_view_gallery', { 'galleryID': galleryID, 'page': page + 1, 'quality': quality } ) }}">Next page</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>

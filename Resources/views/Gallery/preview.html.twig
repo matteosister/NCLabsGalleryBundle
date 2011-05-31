@@ -1,0 +1,29 @@
+                <div id="gallery_{{ gallery.galleryId }}" class="gallery-mini">
+                    <div class="gallery-preview">
+                        <table class="center">
+                            <tr>
+                        {% set released = (gallery.releaseTime is not empty) %}
+                        {% for thumb in images %}
+                                <td>
+                                    {% if released %}
+                                    <a id="{{ thumb }}" href="{{ path('members_view_gallery', { 'quality': quality, 'galleryID': gallery.galleryId }) }}" title="">
+                                    {% endif %}
+                                    <img class="preview" src="{{ path('image_view', { 'quality': 'preview', 'galleryID': gallery.galleryId, 'imageName': thumb ~ '.JPG' }) }}" alt="preview_{{ thumb }}" />
+                                    {% if released %}
+                                    </a>
+                                    {% endif %}
+                                </td>
+                        {% endfor %}
+                            </tr>
+                        </table>
+                        {% if released %}
+                        <div class="gallery-blog center">
+                            "{{ gallery.blog }}"
+                        </div>
+                        <div class="center" style="width: 300px;">
+                            <a href="{{ path('members_view_gallery', { 'quality': 'lowres', 'galleryID': gallery.galleryId }) }}" title="">View in low resolution</a> | 
+                            <a href="{{ path('members_view_gallery', { 'quality': 'highres', 'galleryID': gallery.galleryId }) }}" title="">View in high resolution</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>

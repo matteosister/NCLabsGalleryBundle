@@ -1,0 +1,6 @@
+<div id="gallery-recent" class="center">
+    {% for gallery in previous %}
+        <span class="hdr3">{{ gallery.releaseTime|date('l, j F Y') }}</span>
+        {% include 'NCLabsGalleryBundle:Gallery:preview.html.twig' with { 'images': previews[gallery.galleryId], 'gallery': gallery, 'quality': quality } %}
+    {% endfor %}
+</div>

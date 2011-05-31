@@ -1,0 +1,3 @@
+            <div id="gallery_{{ galleryID }}">
+                {% include 'NCLabsGalleryBundle:Gallery:' ~ type ~ '.html.twig' with { 'gallery': gallery, 'quality': quality, 'route': route } %}
+            </div>

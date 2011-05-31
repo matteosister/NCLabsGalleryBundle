@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="nc_labs_gallery.controller.gallery.class">NCLabs\Bundle\GalleryBundle\Controller\GalleryController</parameter>
+        <parameter key="nc_labs_gallery.controller.image.class">NCLabs\Bundle\GalleryBundle\Controller\ImageController</parameter>
+        <parameter key="nc_labs_gallery.controller.gallery.root_dir">/home/galleries</parameter>
+        <parameter key="nc_labs_gallery.controller.gallery.archive_cache_dir">/home/galleries/cache</parameter>
+    </parameters>
+
+    <services>
+        <service id="nc_labs_gallery.controller.gallery" class="%nc_labs_gallery.controller.gallery.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="nc_labs_gallery.controller.image" class="%nc_labs_gallery.controller.image.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <argument>%nc_labs_gallery.controller.gallery.root_dir%</argument>
+        </service>
+    </services>
+</container>
