@@ -1,3 +1,5 @@
+GalleryBundle is in the early stages of development. As such, this bundle may change drastically and frequently.
+
 License
 -------
 
